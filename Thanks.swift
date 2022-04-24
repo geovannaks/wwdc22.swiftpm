@@ -26,7 +26,7 @@ class GameSceneThanks: SKScene{
     }
     func setupVial(){
         vial.position = CGPoint(x: frame.midX * 1.2, y:frame.midY * 0.4)
-        vial.setScale(0.5)
+        vial.setScale(0.3)
         addChild(vial)
     }
     
@@ -137,8 +137,8 @@ struct Thanks: View {
     }
 }
 
-struct Thanks_Previews: PreviewProvider{
-    static var previews: some View{
-        Thanks()
-    }
-}
+//struct Thanks_Previews: PreviewProvider{
+//    static var previews: some View{
+//        Thanks()
+//    }
+//}

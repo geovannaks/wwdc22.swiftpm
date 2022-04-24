@@ -8,15 +8,22 @@ struct MyApp: App {
     var body: some Scene {
         WindowGroup {
             VStack{
-              // ContentView()
-                //Thanks()
-                //StartView()
-                History()
-                //Mix()
+                NavigationView {
+                   // Mix()
+            StartView()
+                    //ContentView()
+                   // Shake()
+                }
+                .navigationViewStyle(.stack)
+                 //Thanks()
+//                StartView()
+                //History()
+                
+                //Shake()
             }
             .onAppear {
                // music.play()
-                music.setVolume(volume: 0.2)
+                music.setVolume(volume: 0.1)
             }
             
         }

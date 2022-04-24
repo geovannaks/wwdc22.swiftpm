@@ -105,6 +105,7 @@ struct History: View {
     
     var body: some View {
         VStack {
+            
             SpriteView(scene: scene)
                 .ignoresSafeArea()
                 .onReceive(NotificationCenter.default.publisher(for: .init(rawValue: "redAction"))) { _ in
@@ -113,20 +114,25 @@ struct History: View {
             VStack {
                 NavigationLink(destination: ContentView(), isActive: $isNavigationLinkActive) {
                     EmptyView()
-                }.navigationBarHidden(true)
-                    .navigationBarBackButtonHidden(true)
+                }
             }
             
-        }
+        }.onChange(of: isNavigationLinkActive, perform: { newValue in
+        
+            NavigationLink(destination: ContentView()){
+                EmptyView()
+            }
+        })
+      
         
         
-    }
+    }   
 }
-
-struct History_Previews: PreviewProvider{
-    static var previews: some View{
-        History()
-    }
-}
-
-
+//
+//struct History_Previews: PreviewProvider{
+//    static var previews: some View{
+//        History()
+//    }
+//}
+//
+//
