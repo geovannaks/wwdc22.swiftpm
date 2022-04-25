@@ -2,7 +2,8 @@ import SpriteKit
 import SwiftUI
 import CoreMotion
 
-
+var musicShake = Music(name: "shake", format: ".mp3")
+var blur = false
 class GameSceneShake: SKScene{
     var lastUpDate = TimeInterval()
     var timeShake = TimeInterval()
@@ -38,12 +39,12 @@ class GameSceneShake: SKScene{
         addChild(erlenmeyer)
         liquid.position = CGPoint(x: 0, y: -erlenmeyerMask.size.height * 0.5 + liquid.size.height * 0.5)
         liquidWave.position = CGPoint(x: -erlenmeyerMask.size.width * 0.5 + liquidWave.size.width * 0.5, y: -erlenmeyerMask.size.height * 0.5 + liquidWave.size.height * 0.5)
-        vaccine.position = CGPoint(x: frame.midX, y:frame.midY)
+        vaccine.position = CGPoint(x: frame.midX * 1.8, y:frame.midY * 0.8)
         vaccine.setScale(0.6)
-        vial.position = CGPoint(x: frame.midX, y:frame.midY)
+        vial.position = CGPoint(x: frame.midX * 1.2, y:frame.midY * 0.4)
         vial.setScale(0.5)
         congratis.position = CGPoint(x: frame.midX, y:frame.midY)
-        congratis.setScale(0.5)
+        congratis.setScale(1)
         let moveLeft = SKAction.moveBy(x: -liquidWave.size.width * 0.5, y: 0, duration: 0.2)
         let moveRight = SKAction.moveBy(x: liquidWave.size.width * 0.5, y: 0, duration: 0)
         let sequence = SKAction.sequence([moveLeft,moveRight])
@@ -85,7 +86,8 @@ class GameSceneShake: SKScene{
         
         if isShake == true {
             timeShake += deltaTime
-            if timeShake > 1 {
+            if timeShake > 1.5 {
+                
                 if isVaccineShowed == false {
                     isVaccineShowed = true
                     showVaccine()
@@ -96,10 +98,6 @@ class GameSceneShake: SKScene{
         }
     }
     
-    //    func sequenceLiquidWave(){
-    //
-    //    }
-    //
     func startShake(){
         if isVaccineShowed{
             return
@@ -137,7 +135,7 @@ class GameSceneShake: SKScene{
         vaccine.alpha = 0
         vial.alpha = 0
         congratis.alpha = 0
-        congratis.position = CGPoint(x: frame.midX * 1.2, y:frame.midY * 0.4)
+        congratis.position = CGPoint(x: frame.midX , y:frame.midY * 1.7)
         vial.position = CGPoint(x: frame.midX * 1.2, y:frame.midY * 0.4)
         vaccine.position = CGPoint(x: frame.midX * 0.8, y:frame.midY * 1.2)
         vaccine.run(SKAction.fadeIn(withDuration: 0.5))

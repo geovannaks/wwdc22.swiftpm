@@ -5,30 +5,34 @@ import SwiftUI
 
 struct StartView: View {
     let background = Image("backgroundBlue")
-    
+    @State private var blinking: Bool = false
     
     
     var body: some View {
-        NavigationView {
-            ZStack {
-                background
-                    .resizable()
-                    .scaledToFill()
-                    .ignoresSafeArea(.all)
-                VStack {
-                    Image("ivaxx")
-                    NavigationLink(destination: History()){
+        ZStack {
+            background
+                .resizable()
+                .scaledToFill()
+                .ignoresSafeArea(.all)
+            VStack {
+                Image("ivaxx")
+                
+                VStack(alignment: .center, spacing: 20)  {
+                    NavigationLink(destination: History()) {
                         Image("tapToStart")
                     }
-                }.background(background)
+                    Text("For the best experience use full screen")
+                        .font(.system(size: 20, weight: .regular, design: .rounded))
+                        .foregroundColor(.white)
+                    //                        Image("best")
+                    //                            .scaleEffect(0.5)
+                }
+                .padding(.bottom)
             }
         }
-        .navigationViewStyle(.stack)
         .navigationBarHidden(true)
         .navigationBarBackButtonHidden(true)
     }
-    
-    
     
 }
 

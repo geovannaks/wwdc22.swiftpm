@@ -97,7 +97,7 @@ class GameScene: SKScene {
                     selected?.removeFromParent()
                     liquid.run(SKAction.moveBy(x: 0, y: liquid.size.height / 6, duration: 1))
                     musicPour.playOnce()
-                    musicPour.setVolume(volume: 0.7)
+                    musicPour.setVolume(volume: 3)
                     
                 }else{
                     selected?.run(SKAction.move(to: returnPosition, duration: 0.5))

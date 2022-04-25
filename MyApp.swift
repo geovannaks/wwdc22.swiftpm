@@ -9,20 +9,15 @@ struct MyApp: App {
         WindowGroup {
             VStack{
                 NavigationView {
-                   // Mix()
-            StartView()
+                    // Mix()
+                    StartView()
+                    //Shake()
                     //ContentView()
-                   // Shake()
                 }
                 .navigationViewStyle(.stack)
-                 //Thanks()
-//                StartView()
-                //History()
-                
-                //Shake()
             }
             .onAppear {
-               // music.play()
+                music.play()
                 music.setVolume(volume: 0.1)
             }
             
